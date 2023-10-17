@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: reports
+#
+#  id         :integer          not null, primary key
+#  body       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  camper_id  :integer          not null
+#
+# Indexes
+#
+#  index_reports_on_camper_id  (camper_id)
+#
+# Foreign Keys
+#
+#  camper_id  (camper_id => campers.id)
+#
 class Report < ApplicationRecord
   belongs_to :camper
   validates :body, presence: true

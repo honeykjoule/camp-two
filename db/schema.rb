@@ -23,14 +23,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_14_230813) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "progresses", force: :cascade do |t|
-    t.integer "camper_id", null: false
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["camper_id"], name: "index_progresses_on_camper_id"
-  end
-
   create_table "reports", force: :cascade do |t|
     t.integer "camper_id", null: false
     t.text "body"
@@ -39,15 +31,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_14_230813) do
     t.index ["camper_id"], name: "index_reports_on_camper_id"
   end
 
-  create_table "updates", force: :cascade do |t|
-    t.integer "camper_id", null: false
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["camper_id"], name: "index_updates_on_camper_id"
-  end
-
-  add_foreign_key "progresses", "campers"
   add_foreign_key "reports", "campers"
-  add_foreign_key "updates", "campers"
 end
