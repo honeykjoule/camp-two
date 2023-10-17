@@ -4,7 +4,7 @@
 
   <div class="flex gap-4">
     <div class="border p-3 mt-3">
-      <div class="text-sm uppercase font-semibold text-gray-700">Most Reports</div>
+      <div data-action="click->confetti#upBlast" class="text-sm uppercase font-semibold text-gray-700">Most Reports</div>
       <% @campers.most_reports.each_with_index do |camper, index| %>
         <% if camper.reports.any? and index == 0 %>
           <div class="text-lg font-semibold">#<%= index + 1 %>. <%= camper.name %> (<%= camper.reports.count %> total)</div>
@@ -16,7 +16,7 @@
       <% end %>
     </div>
     <div class="border p-3 mt-3">
-      <div class="text-sm uppercase font-semibold text-gray-700">Latest Report</div>
+      <div data-action="click->confetti#downBlast" class="text-sm uppercase font-semibold text-gray-700">Latest Report</div>
       <% @campers.most_recent_report.each_with_index do |camper, index| %>
         <% if camper.reports.any? and index == 0 %>
           <div class="text-lg font-semibold">#<%= index + 1 %>. <%= camper.name %> (last report <%= time_ago_in_words(camper.reports.last.created_at) %> ago)</div>

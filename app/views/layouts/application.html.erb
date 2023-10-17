@@ -16,7 +16,7 @@
     <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
-  <body>
+  <body data-controller="confetti">
     <main>
       <%= yield %>
     </main>
